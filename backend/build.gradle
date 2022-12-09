@@ -1,0 +1,92 @@
+plugins {
+	id 'java'
+	id 'org.gretty' version '4.0.3'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/libs-milestone" }
+}
+
+def springVersion = '6.0.0'
+def hsqldbVersion = '2.7.1'
+def jsonWebTokenVersion = '0.11.5'
+def lombokVersion = '1.18.24'
+
+dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.7.1'
+
+	implementation group: 'org.springframework',
+			name: 'spring-context',
+			version: springVersion
+
+	implementation group: 'org.hsqldb',
+			name: 'hsqldb',
+			version: hsqldbVersion
+
+	implementation group: 'org.springframework',
+			name: 'spring-webmvc',
+			version: springVersion
+
+	implementation group: 'org.springframework',
+			name: 'spring-jdbc',
+			version: springVersion
+
+	compileOnly group: 'jakarta.servlet',
+			name: 'jakarta.servlet-api',
+			version: '6.0.0'
+
+	compileOnly group: 'org.projectlombok',
+			name: 'lombok',
+			version: lombokVersion
+
+	annotationProcessor group: 'org.projectlombok',
+			name: 'lombok',
+			version: lombokVersion
+
+	implementation group: 'org.hibernate',
+			name: 'hibernate-validator',
+			version: '8.0.0.Final'
+
+	implementation group: 'org.hibernate',
+			name: 'hibernate-core',
+			version: '6.1.5.Final'
+
+	implementation group: 'org.springframework',
+			name: 'spring-orm',
+			version: springVersion
+
+	implementation group: 'org.springframework.security',
+			name: 'spring-security-web',
+			version: springVersion
+
+	implementation group: 'org.springframework.security',
+			name: 'spring-security-config',
+			version: springVersion
+
+	implementation group: 'io.jsonwebtoken',
+			name: 'jjwt-api',
+			version: jsonWebTokenVersion
+
+	implementation group: 'io.jsonwebtoken',
+			name: 'jjwt-impl',
+			version: jsonWebTokenVersion
+
+	implementation group: 'io.jsonwebtoken',
+			name: 'jjwt-jackson',
+			version: jsonWebTokenVersion
+}
+
+test {
+	useJUnitPlatform()
+}
+
+gretty {
+	contextPath = '/'
+}
