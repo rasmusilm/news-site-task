@@ -1,5 +1,5 @@
-<template>
-  <nav>
+<template class="flex-container">
+  <nav class="content">
     <ol class="navigation-list">
       <li>
         <RouterLink to="/" class="nav-item">Home</RouterLink>

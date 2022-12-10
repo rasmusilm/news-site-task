@@ -6,11 +6,15 @@ import router from './router'
 
 import './assets/main.css'
 
+import ArticleListItem from "@/components/ArticleListItem.vue";
+
 const app = createApp(App)
 
 app.use(createPinia())
 
 app.use(router)
+
+app.component("article-list-item", ArticleListItem)
 
 app.mount('#app')
 

@@ -19,7 +19,6 @@
 <script lang="ts">
 import {Options, Vue} from "vue-class-component";
 import router from "@/router";
-import {useCounterStore} from "@/stores/counter";
 import {useIdentityStore} from "@/stores/identity";
 
 @Options({
