@@ -4,7 +4,7 @@
             <RouterLink :to="{
                 name: 'Story',
                 params: {index: index}
-            }" >
+            }" class="title-link">
                 {{this.article.title}}
             </RouterLink>
         </div>
@@ -43,15 +43,20 @@ export default class ArticleListItem extends Vue.with(Props){
     max-width: 100%;
 }
 
-div {
-    border: black 0.5px solid;
-}
+/*div {*/
+/*    border: black 0.5px solid;*/
+/*}*/
 
 .title{
     font-weight: bold;
     font-size: 1.5rem;
     width: 100%;
     margin-bottom: 0.5rem;
+}
+
+.title-link {
+    color: black;
+    text-decoration: none;
 }
 
 .article {

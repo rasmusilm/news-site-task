@@ -4,6 +4,9 @@
                 <div class="title clickable">
                     {{this.article.title}}
                 </div>
+                <div class="image-container">
+                    <img v-bind:src="article.urlToImage" loading="lazy" class="big-image" alt="article main image"/>
+                </div>
                 <div class="article-text">
                     {{this.article.content}}
                 </div>
@@ -31,6 +34,9 @@ export default class StoryView extends Vue.with(Props){
         console.log(this.index);
         this.setCorrectArticle();
         this.loaded = true;
+
+        //actually should be using a backend for webscraping
+        // the actual article content, but not enough time atm
     }
 
     setCorrectArticle() {
@@ -40,6 +46,7 @@ export default class StoryView extends Vue.with(Props){
 </script>
 
 <style scoped>
+
 .title {
     font-size: 2rem;
     margin: 2rem 0 2rem 0;
@@ -54,5 +61,20 @@ export default class StoryView extends Vue.with(Props){
 .article-text {
     width: 90%;
     margin: auto;
+}
+
+.image-container {
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    height: 25rem;
+}
+
+.big-image {
+    width: 80%;
+    margin: auto;
+    align-self: center;
+    background-color: #cccccc;
 }
 </style>

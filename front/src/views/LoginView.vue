@@ -1,16 +1,21 @@
-<template>
-    <div class="id-container">
-        <div class="id-field">
-            <div class="input-container">
-                <label class="input-label" for="Email">Email</label>
-                <input v-model="email" class="input-box" type="text" />
+<template class="flex-container">
+    <div class="content">
+        <div class="id-container">
+            <div class="id-field">
+                <div class="input-container">
+                    <label class="input-label" for="Email">Email</label>
+                    <input v-model="email" class="input-box" type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="input-label" for="Password">API key</label>
+                    <input v-model="apikey" class="input-box" type="text" />
+                </div>
+                <div>
+                    <input @click="login()" type="submit" value="Login" class="submit" />
+                </div>
             </div>
-            <div class="form-group">
-                <label class="input-label" for="Password">Password</label>
-                <input v-model="apikey" class="input-box" type="text" />
-            </div>
-            <div>
-                <input @click="login()" type="submit" value="Login" class="submit" />
+            <div class="explanation">
+                aaa
             </div>
         </div>
     </div>
@@ -51,4 +56,10 @@ export default class Login extends Vue {
 
 <style scoped>
 @import "@/assets/identity.css";
+
+div {border: black 1px solid}
+
+.explanation {
+
+}
 </style>
