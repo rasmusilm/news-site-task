@@ -5,7 +5,6 @@ import TheHeader from "@/components/header.vue";
 </script>
 
 <template>
-    <the-header />
     <main-navbar />
     <RouterView />
 

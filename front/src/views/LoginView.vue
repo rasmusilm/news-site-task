@@ -1,5 +1,5 @@
 <template class="flex-container">
-    <div class="content">
+    <div class="content container">
         <div class="id-container">
             <div class="id-field">
                 <div class="input-container">
@@ -7,7 +7,7 @@
                     <input v-model="email" class="input-box" type="text" />
                 </div>
                 <div class="form-group">
-                    <label class="input-label" for="Password">API key</label>
+                    <label class="input-label" for="apikey">API key</label>
                     <input v-model="apikey" class="input-box" type="text" />
                 </div>
                 <div>
@@ -15,7 +15,12 @@
                 </div>
             </div>
             <div class="explanation">
-                aaa
+                To get an API key, gow to <a class="text-link" href="https://newsapi.org/register">NewsAPI.org</a>
+                and register an account.
+                <br />
+                After that, you will recieve an API key, that you can use to use this site.
+                <br />
+                While logged in, the API key will be stored in your browser.
             </div>
         </div>
     </div>
@@ -35,8 +40,8 @@ import {useIdentityStore} from "@/stores/identity";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 export default class Login extends Vue {
-    email = "user@email.com";
-    apikey = "password";
+    email = "";
+    apikey = "";
     identity = useIdentityStore();
 
     mounted() {
@@ -57,9 +62,15 @@ export default class Login extends Vue {
 <style scoped>
 @import "@/assets/identity.css";
 
-div {border: black 1px solid}
 
 .explanation {
+    margin-top: 15%;
+    margin-left: 1rem;
+}
 
+@media (max-width: 1000px) {
+    .explanation {
+        margin-top: 2rem;
+    }
 }
 </style>

@@ -10,7 +10,7 @@
                 <search-svg v-else/>
             </button>
         </div>
-        <div class="article-list" v-if="this.articlesFound && !this.inError">
+        <div class="article-list" v-if="this.articlesFound && !this.inError && this.loaded">
             <div v-for="article in articles" class="article-content">
                 <article-list-item :article="article" :index="articles.indexOf(article)" />
             </div>
@@ -18,6 +18,11 @@
         <div v-else-if="this.inError">
             <h2>
                 {{ this.errorMessage }}
+            </h2>
+        </div>
+        <div v-else-if="!this.loaded">
+            <h2>
+                Please wait, loading articles
             </h2>
         </div>
         <div v-else>
@@ -65,10 +70,12 @@ export default class MainView extends Vue{
     searching= false;
     inError = false;
     errorMessage = "";
+    loaded = true;
 
     beforeMount() {
         this.resizeHandler();
         if (this.articleStore.currentPage == null) {
+            this.loaded = false;
             let response = this.apiService.getTop();
             this.handleApiResponse(response);
         } else if (this.articleStore.articles.length < 1) {
@@ -118,6 +125,7 @@ export default class MainView extends Vue{
                 this.handleApiResponse(this.apiService.getTop(pagenum));
             }
             this.articleStore.setCurrentPage(pagenum)
+            window.scrollTo(0, 0);
         } catch (e) {
             this.inError = true;
             this.errorMessage = e.message;
@@ -136,6 +144,7 @@ export default class MainView extends Vue{
             this.articleStore.setTotalPages(Math.ceil(data.totalResults/data.articles.length))
             this.articles = data.articles;
             this.articlesFound = this.articles.length >= 1;
+            this.loaded = true;
         }).catch(
             e => {
                 this.inError = true;
@@ -196,5 +205,6 @@ export default class MainView extends Vue{
     background-color: #d7d7d7;
     color: #414141;
     font-family: SansSerif,serif;
+    cursor: pointer;
 }
 </style>

@@ -1,15 +1,23 @@
 .id-container {
-    min-height: 80vh;
-    position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .id-field {
-    position: absolute;
     padding-left: 6rem;
     padding-right: 6rem;
     top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    margin-top: 15%;
+}
+
+@media (max-width: 1000px) {
+    .id-container {
+        flex-wrap: wrap;
+    }
+
+    .id-field {
+        margin-top: 0%;
+    }
 }
 
 .input-container {
@@ -28,7 +36,7 @@
     width: 15rem;
     padding-bottom: 0.6rem;
     padding-top: 0.6rem;
-    background-color: #bebec2;
+    background-color: #d2d2d2;
     border-radius: 5px;
     border: 1px solid #bebec2;
     color: #000000;
@@ -36,15 +44,19 @@
 
 .submit {
     align-content: center;
-    margin-left: 32%;
+    margin-left: 25%;
     margin-top: 3rem;
-    background: rgba(138, 133, 133, 0.99);
+    background: rgba(152, 152, 152, 0.99);
     border-radius: 0.4rem;
     padding: 0.4rem;
-    padding-right: 1.4rem;
-    padding-left: 1.4rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
 }
 
 .error {
     color: firebrick;
+}
+
+.text-link {
+    color: #111111;
 }

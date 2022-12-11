@@ -10,6 +10,11 @@
                 <div class="article-text">
                     {{this.article.content}}
                 </div>
+                <div class="article-text">
+                    <a v-bind:href="article.url">
+                        {{this.article.source.name}}
+                    </a>
+                </div>
             </div>
 
         </div>
